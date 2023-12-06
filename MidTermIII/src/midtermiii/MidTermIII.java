@@ -15,7 +15,7 @@ public class MidTermIII {
      */
     public static void main(String[] args) {
         Bpp bpp=new Bpp();
-        bpp.bp();
+        bpp.cp();
     }
     
 }

@@ -8,16 +8,14 @@ package midtermiii;
  *
  * @author hlpss
  */
-public class Bpp {
-    
-    public void ap(){
-        A a=new A();
-        a.getGreeting();
-        a.get1();
+public class Employee extends person{
+    String name,id;
+    public Employee(String name,String id){
+        super(name,id);
+        this.name=name;
+        this.id=id;
     }
     
-    public void bp(){
-        B b=new B();
-        b.get2();
-    }
+    
+    
 }

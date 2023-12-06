@@ -11,11 +11,12 @@ import java.util.Scanner;
  * @author hlpss
  */
 public class A {
-    public String getGreeting(){
+    public String getGreeting(String personName){
          
-        System.out.println("Hello World!");
+        System.out.println(personName+" says Hello World!");
         return"Hello World!";
     }
+    
     
     public void get1() {
         
