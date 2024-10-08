@@ -3,6 +3,19 @@ package examples;
 import java.util.Scanner;
 
 public class Examples {
+	public void EX87() {
+	    // create boolean variables
+	    boolean booleanValue1 = true;
+	    boolean booleanValue2 = false;
+
+	    // convert boolean to string
+	    // using valueOf()
+	    String stringValue1 = String.valueOf(booleanValue1);
+	    String stringValue2 = String.valueOf(booleanValue2);
+
+	    System.out.println(stringValue1);    // true
+	    System.out.println(stringValue2);    // true				
+	}
 	public void EX01() {
         // Creates a reader instance which takes
         // input from standard input - keyboard
