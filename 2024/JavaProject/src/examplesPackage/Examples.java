@@ -12,11 +12,5 @@ public class Examples {
 	    int sum = first + second;
 	    System.out.println(first + " + " + second + " = "  + sum);
 	}	
-	
-	
-	public void choiceType() {
-
-	}
-	
 
 }
