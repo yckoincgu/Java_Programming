@@ -1,8 +1,28 @@
-package examples;
+package examplesPackage;
 
 import java.util.Scanner;
 
 public class Examples {
+	
+	public void mainLoop() {
+		Scanner reader = new Scanner(System.in);;
+        int choice=1;
+		while (choice !=0) {
+			System.out.print("Choose an example by input an integer: ");
+			
+			choice = reader.nextInt();
+	        switch(choice) {
+	        	
+	        	case 2->{EX02();System.out.println("");	}
+	        	case 3->{EX03();System.out.println("");	}
+	        	case 87->{EX87();System.out.println("");}
+	        	default->{System.out.println("No function for your choice in mainLoop  " + choice);}
+	        }
+	        				
+		}
+		reader.close();				
+	}
+	
 	public void EX87() {
 	    // create boolean variables
 	    boolean booleanValue1 = true;
@@ -16,19 +36,7 @@ public class Examples {
 	    System.out.println(stringValue1);    // true
 	    System.out.println(stringValue2);    // true				
 	}
-	public void EX01() {
-        // Creates a reader instance which takes
-        // input from standard input - keyboard
-        Scanner reader = new Scanner(System.in);
-        System.out.print("Enter a number: ");
 
-        // nextInt() reads the next integer from the keyboard
-        int number = reader.nextInt();
-        reader.nextLine();
-
-        // println() prints the following line to the output screen
-        System.out.println("You entered: " + number);		
-	}
 	public void EX02() {
 	    int first = 10;
 	    int second = 20;
