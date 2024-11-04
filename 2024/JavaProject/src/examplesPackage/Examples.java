@@ -9,6 +9,15 @@ public class Examples {
 	public enum ExampleTYpes {
 		basicTypes, arraytypes, terminated
 	}
+	public void EX05() {
+	    int first = 10;
+	    int second = 20;
+
+	    // add two numbers
+	    int sum = first + second;
+	    System.out.println(first + " + " + second + " = "  + sum);
+	}	
+	
 	
 	public void choiceType() {
         ExampleTYpes choiceType= ExampleTYpes.basicTypes;    
@@ -25,7 +34,7 @@ public class Examples {
         
         
         switch(choiceType.name()) {
-        case "basicTypes"->{mainLoop();}
+       // case "basicTypes"->{mainLoop();}
         case "arraytypes"->{System.out.println("arraytypes ....");} 
         case "terminated"->{
         	System.out.println("No choice types for your");}

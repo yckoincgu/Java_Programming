@@ -10,6 +10,7 @@ public class App {
 		
 		ExamplesArray b=new ExamplesArray();
 		b.EX45();
+		b.EX05();
 		
         //a.mainLoop();
        
