@@ -1,26 +1,7 @@
 package examplesPackage;
 
 public class ExamplesBasic extends Examples{
-	public void mainLoop() {
-		
-        int choice=1;
 
-        
-		while (choice !=0) {
-			System.out.print("Choose an example by input an integer: ");
-			
-			choice = reader.nextInt();
-	        switch(choice) {
-	        	
-	        	case 2->{EX02();System.out.println("");	}
-	        	case 3->{EX03();System.out.println("");	}
-	        	case 87->{EX87();System.out.println("");}
-	        	default->{System.out.println("Terminated by your choice" );}
-	        }
-	        				
-		}
-		reader.close();				
-	}
 	
 	public void EX87() {
 	    // create boolean variables
