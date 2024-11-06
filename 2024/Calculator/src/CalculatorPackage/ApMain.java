@@ -6,51 +6,45 @@ public class ApMain {
 
 	public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        double sum = 0, inputNum=0, mulValue=1;
+        double sum = 0, inputNum=0, mulValue=0;
         char operatorChar ='\0';
-        boolean inputNumberLogic=true;
+        boolean inputNumberTrue=true;
         String inputOperator="", inputNumString="";
 
         while (true) {
-        	if (inputNumberLogic) {
+        	if (inputNumberTrue) {
         		System.out.print("Enter a number  ");
         		inputNumString = scanner.next();
         		inputNum = Double.parseDouble(inputNumString);
+        		if (operatorChar == '\0') {
+        			sum=inputNum;
+        		}
                 if (operatorChar == '+' || operatorChar == '-') {
-                	sum=calculate(sum, inputNum, operatorChar);
+                	sum=mulValue+calculate(sum, inputNum, operatorChar);
+                	mulValue=0;
+                	inputNumberTrue=true;
                 }
                 if (operatorChar == '*' || operatorChar == '/') {
                 	mulValue=calculate(mulValue, inputNum, operatorChar);
+                	inputNumberTrue=true;
                 }
-                if (operatorChar == '=') {
-                	sum=calculate(sum, inputNum, operatorChar);
-                    System.out.println("Final result: " + sum);
-                    break;
-                }                
-            	inputNumberLogic=false;                
+    
+                
+            	inputNumberTrue=false;                
         		
         	}
         	else {
         		System.out.print("Enter an operator (+, -, *, /, =): ");
                 inputOperator = scanner.next();
                 operatorChar = inputOperator.charAt(0);
-                if (operatorChar == '*' || operatorChar == '/' || operatorChar == '=') {
-                	//mulValue=sum; 
-                	inputNumberLogic=true;
-                	
-                }
-                if(operatorChar == '+' || operatorChar == '-') {
-                	sum=calculate(sum, inputNum, operatorChar);
-                	inputNumberLogic=true;
-                	mulValue=1;           	
-                }
+                inputNumberTrue=true;
+                if (operatorChar == '=') {
+                    System.out.println("Final result: " + sum);
+                    break;
+                   
+                }                  
         	}
-
-            
-
-
-
-
+        	
         }
 
         scanner.close();
