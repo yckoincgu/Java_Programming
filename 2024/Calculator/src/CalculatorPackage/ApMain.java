@@ -8,7 +8,7 @@ public class ApMain {
         Scanner scanner = new Scanner(System.in);
         double sum = 0, inputNum=0, mulValue=0;
         char frontOperatorChar ='\0';
-        boolean inputNumberTrue=true;
+        boolean inputNumberTrue=true, oneItemOnly=true;
         String frontOperatorStr="", inputNumString="";
 
         while (true) {
@@ -20,9 +20,9 @@ public class ApMain {
         			//sum=inputNum;
         		}
                 if (frontOperatorChar == '+' || frontOperatorChar == '-') {
-                	if(sum == 0 ) sum =inputNum;
-                	//else sum=mulValue+calculate(sum, inputNum, frontOperatorChar);
+                	sum=mulValue+calculate(sum, inputNum, frontOperatorChar);
                 	mulValue=0;                	
+                	System.out.println("sum = " + sum+ " mulValue = "+mulValue);
                 }
                 if (frontOperatorChar == '*' || frontOperatorChar == '/') {
                 	
@@ -43,13 +43,10 @@ public class ApMain {
                 	System.out.println("sum = " + sum+ " mulValue = "+mulValue);
                 }
                 	
-                if (frontOperatorChar == '=' && sum == 0) {System.out.println("Final result: " + inputNum); break;}
-                else if (frontOperatorChar == '=') {
-                	System.out.println("Final result = " + (sum+mulValue)+" sum = "+sum+" mulValue= "+ mulValue); break;
-                }
-                
-                   
-                }                  
+                if (oneItemOnly && frontOperatorChar == '=') {System.out.println("Final result: " + inputNum); break;}
+                else if (frontOperatorChar == '=') {System.out.println("Final result = " + (sum+mulValue)+" sum = "+sum+" mulValue= "+ mulValue); break;}
+                else oneItemOnly=false;
+           }                  
         }
         scanner.close();
         	
