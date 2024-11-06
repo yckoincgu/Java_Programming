@@ -21,15 +21,14 @@ public class ApMain {
         		}
                 if (operatorChar == '+' || operatorChar == '-') {
                 	sum=mulValue+calculate(sum, inputNum, operatorChar);
-                	mulValue=0;
-                	inputNumberTrue=true;
+                	mulValue=0;                	
                 }
                 if (operatorChar == '*' || operatorChar == '/') {
-                	mulValue=calculate(mulValue, inputNum, operatorChar);
-                	inputNumberTrue=true;
+                	if (mulValue == 0) mulValue =1;
+                	mulValue=calculate(mulValue, inputNum, operatorChar);               	
                 }
     
-                
+                System.out.println("sum = " + sum+ " mulValue = "+mulValue);
             	inputNumberTrue=false;                
         		
         	}
