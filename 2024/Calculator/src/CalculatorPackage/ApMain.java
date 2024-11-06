@@ -17,7 +17,7 @@ public class ApMain {
         		inputNumString = scanner.next();
         		inputNum = Double.parseDouble(inputNumString);
         		if (frontOperatorChar == '\0') {
-        			sum=inputNum;
+        			//sum=inputNum;
         		}
                 if (frontOperatorChar == '+' || frontOperatorChar == '-') {
                 	if(sum == 0 ) sum =inputNum;
@@ -25,8 +25,8 @@ public class ApMain {
                 	mulValue=0;                	
                 }
                 if (frontOperatorChar == '*' || frontOperatorChar == '/') {
-                	if (mulValue == 0) mulValue =inputNum;
-                	else mulValue=calculate(mulValue, inputNum, frontOperatorChar);               	
+                	
+                	mulValue=calculate(mulValue, inputNum, frontOperatorChar);               	
                 }
     
                 System.out.println("sum = " + sum+ " mulValue = "+mulValue);
@@ -43,19 +43,21 @@ public class ApMain {
                 	System.out.println("sum = " + sum+ " mulValue = "+mulValue);
                 }
                 	
-                if (frontOperatorChar == '=') {
-                	if(sum == inputNum) System.out.println("Final result: " + sum);
-                    System.out.println("Final result: " + (sum+mulValue));
-                    break;
+                if (frontOperatorChar == '=' && sum == 0) {System.out.println("Final result: " + inputNum); break;}
+                else if (frontOperatorChar == '=') {
+                	System.out.println("Final result: " + (sum+mulValue)); break;
+                }
+                
                    
                 }                  
-        	}
-        	
         }
-
         scanner.close();
+        	
+}
 
-	}
+        
+
+	
 	
 	static double calculate(double result, double num, char operatorChar) {
         if (operatorChar == '\0') {
