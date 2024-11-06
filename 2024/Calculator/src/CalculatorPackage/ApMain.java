@@ -39,13 +39,13 @@ public class ApMain {
                 frontOperatorChar = frontOperatorStr.charAt(0);
                 inputNumberTrue=true;
                 if (frontOperatorChar == '*' || frontOperatorChar == '/') {
-                	mulValue=inputNum;
+                	if(mulValue == 0) mulValue=inputNum;
                 	System.out.println("sum = " + sum+ " mulValue = "+mulValue);
                 }
                 	
                 if (frontOperatorChar == '=' && sum == 0) {System.out.println("Final result: " + inputNum); break;}
                 else if (frontOperatorChar == '=') {
-                	System.out.println("Final result: " + (sum+mulValue)); break;
+                	System.out.println("Final result = " + (sum+mulValue)+" sum = "+sum+" mulValue= "+ mulValue); break;
                 }
                 
                    
