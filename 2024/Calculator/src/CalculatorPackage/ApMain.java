@@ -6,10 +6,10 @@ public class ApMain {
 
 	public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        double sum = 0, inputNum=0, mulValue=0;
-        char frontOperator ='\0', backOperator='\0';
-        boolean inputNumberTrue=true, oneItemOnly=true;
-        String backOperatorStr="", inputNumString="";
+        double sum = 0, inputNum=0, product=0;
+        char activeOperator ='\0', lastOperator='\0';
+        boolean inputNumberTrue=true, Terminated=false;
+        String lastOperatorStr="", inputNumString="";
 
         while (true) {
         	if (inputNumberTrue) {
@@ -23,51 +23,66 @@ public class ApMain {
         		    break;
         		}
             	inputNumberTrue=false;                
-        		
         	}
-        	else {
-        		System.out.print("Enter an operator (+, -, *, /, =): ");
-        		frontOperator= backOperator;
-                backOperatorStr = scanner.next();                  
-                backOperator = backOperatorStr.charAt(0);
-                if (!(backOperator == '=' || backOperator == '+' || backOperator == '-' || backOperator == '*' || backOperator == '/')) {
-                	System.out.println("Error operator !!!" );
-                	break;
+
+    		System.out.print("Enter an operator (+, -, *, /, =): ");
+    		activeOperator= lastOperator;
+            lastOperatorStr = scanner.next();   
+            if (lastOperatorStr.trim().length() > 1) {System.out.println("Bad Operator !!");break;}
+            lastOperator = lastOperatorStr.charAt(0);
+            if (!(lastOperator == '=' || lastOperator == '+' || lastOperator == '-' || lastOperator == '*' || lastOperator == '/')) {
+            	System.out.println("Error operator !!!" );
+            	break;
+            }
+            
+            
+            if(lastOperator == '=') {
+            	switch(activeOperator) {
+                	case '\0','+', '-'->{sum=product+calculate(sum, inputNum, activeOperator); Terminated=true; break;}
+                	case '*'->{sum=sum+calculate(product, inputNum, activeOperator); Terminated=true; break;}
+                	case '/'->{
+                		if(inputNum==0) {System.out.println("divisor cannot be 0"); break;}
+                		else {sum=sum+calculate(product, inputNum, activeOperator); Terminated=true; break;}
+                	}
                 }
-                	
-                if      (backOperator == '=' && frontOperator == '\0') {sum=inputNum; System.out.println("Final result: " + sum); break;}
-                else if (frontOperator == '+' && backOperator == '=' ) {sum=sum+mulValue+inputNum; System.out.println("Final result = " + (sum)+" sum = "+sum+" mulValue= "+ mulValue); oneItemOnly=false; break;}
-                else if (frontOperator == '-' && backOperator == '=' ) {sum=sum+mulValue+(-1)*inputNum; System.out.println("Final result = " + (sum)+" sum = "+sum+" mulValue= "+ mulValue); oneItemOnly=false; break;}
-                else if (frontOperator == '*' && backOperator == '=' ) {sum=(mulValue==0)?sum*inputNum:sum+mulValue*inputNum; System.out.println("Final result = " + sum); break;}
-                else if (frontOperator == '/' && backOperator == '=' ) {
-                	if(inputNum==0) break; 
-                	else {sum=(mulValue==0)?sum/inputNum:sum+mulValue/inputNum; System.out.println("Final result = " + sum); break;}}
-                else if (frontOperator == '*' && (backOperator == '*' || backOperator == '/') ) {
-                	mulValue = mulValue*inputNum; System.out.println("Final result = " + sum);}
-                else if (frontOperator == '/' && (backOperator == '*' || backOperator == '/') ) {
-                	if(inputNum==0) break; 
-                	else {mulValue = mulValue/inputNum; System.out.println("Final result = " + sum);}}
-                else if ((frontOperator == '+' || frontOperator == '\0') && (backOperator == '*' || backOperator == '/') ) {mulValue=inputNum;}
-                else if (frontOperator == '-' && (backOperator == '*' || backOperator == '/') ) {mulValue=(-1)*inputNum;}       
-                else if (backOperator == '+') {
-                	sum=mulValue+calculate(sum, inputNum, backOperator); 
-                	System.out.println("sum = " + sum+ " mulValue = "+mulValue);
-                	mulValue=0;} 
-                else if (backOperator == '-') {
-                	sum=mulValue+calculate(sum, (-1)*inputNum, backOperator); 
-                	System.out.println("sum = " + sum+ " mulValue = "+mulValue);
-                	mulValue=0;}                 
-                else {System.out.println("Error operation !!!" );}
-                inputNumberTrue=true;
-           }                  
-        }
-        System.out.println("Terminated calculation.  sum = " + sum);
+            }    
+            if(Terminated) break;
+            
+            switch(lastOperator) {
+                case '+', '-'->{
+                	switch(activeOperator) {
+	                	case '\0','+', '-'->{sum=product+calculate(sum, inputNum, activeOperator);}
+	                	case '*'->{sum=sum+calculate(product, inputNum, activeOperator); product=0;}
+	                	case '/'->{
+	                		if(inputNum==0) {System.out.println("divisor cannot be 0"); product=0; break;}
+	                		else {sum=sum+calculate(product, inputNum, activeOperator); product=0;}
+		                }
+                	}
+                }	
+                case '*', '/'->{
+                	switch(activeOperator) {
+	                	case '\0','+'->{product=inputNum;}
+	                	case '-'->{product=(-1)*inputNum;}
+	                	case '*'->{product=calculate(product, inputNum, activeOperator); }
+	                	case '/'->{
+	                		if(inputNum==0) {System.out.println("divisor cannot be 0"); product=0; break;}
+		                		else {product=calculate(product, inputNum, activeOperator);}
+		                }
+                	}
+                
+                }
+                
+            }
+            inputNumberTrue=true;
+        } // end of while 
+        printResult(sum);
         scanner.close();
         	
-}
+	}
 
-        
-
+	static void printResult(double sum) {
+		System.out.println("Terminated calculation.  sum = " + sum);
+	}
 	
 	
 	static double calculate(double result, double num, char operatorChar) {
