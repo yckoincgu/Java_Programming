@@ -2,7 +2,7 @@ package examplesPackage;
 
 import java.util.Scanner;
 
-public class ExCalculator extends Examples{
+public class CalculatorV1 extends Examples{
 
 	void calEntrancec() {
         Scanner scanner = new Scanner(System.in);
@@ -11,7 +11,7 @@ public class ExCalculator extends Examples{
         boolean inputNumberTrue=true, Terminated=false;
         String lastOperatorStr="", inputNumString="";
 
-        while (true) {
+        while (!Terminated) {
         	if (inputNumberTrue) {
         		System.out.print("Enter a number  ");
         		inputNumString = scanner.next();
@@ -46,7 +46,6 @@ public class ExCalculator extends Examples{
                 	}
                 }
             }    
-            if(Terminated) break;
             
             switch(lastOperator) {
                 case '+', '-'->{

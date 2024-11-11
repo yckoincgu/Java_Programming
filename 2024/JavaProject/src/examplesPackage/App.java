@@ -2,8 +2,10 @@ package examplesPackage;
 
 import java.util.Scanner;
 
+import CalculatorPackage.Xcalculator;
 
-enum EX {xbasic, xarray, xterminated, xcalculator}
+
+enum EX {xbasic, xarray, xterminated, calcuatorV1, xcalculator}
 
 public class App {
 
@@ -22,9 +24,15 @@ public class App {
         choice = reader.nextInt();  
         switch(choice) {
 	        case 3->{
-	        	ExCalculator a = new ExCalculator();
+	        	CalculatorV1 a = new CalculatorV1();
 	        	a.calEntrancec();
 	        }
+	        case 4->{
+	    		Xcalculator a=new Xcalculator();
+	    		a.xOperation();     	        	
+	        }
+	        
+	
         }
         
         
