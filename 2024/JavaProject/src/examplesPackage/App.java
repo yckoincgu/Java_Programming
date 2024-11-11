@@ -1,11 +1,10 @@
 package examplesPackage;
 
 import java.util.Scanner;
-
 import CalculatorPackage.Xcalculator;
+import CalculatorPackage.Ycalculator;
 
-
-enum EX {xbasic, xarray, xterminated, calcuatorV1, xcalculator}
+enum EX {xbasic, xarray, xterminated, calcuatorV1, xcalculator, ycalculator}
 
 public class App {
 
@@ -31,7 +30,10 @@ public class App {
 	    		Xcalculator a=new Xcalculator();
 	    		a.xOperation();     	        	
 	        }
-	        
+	        case 5->{
+	        	Ycalculator b=new Ycalculator();
+	    		b.yOperation();     	        	
+	        }	        
 	
         }
         

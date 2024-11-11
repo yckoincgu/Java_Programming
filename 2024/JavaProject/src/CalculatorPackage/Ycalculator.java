@@ -1,25 +1,31 @@
 package CalculatorPackage;
 
-public class Xcalculator extends XcalculatorBase{
-	
-	 
-	public double xOperation() {
+public class Ycalculator extends YcalculatorBase{
+
+	public double yOperation() {
 		double result=0;
 	    while (true) {
-		   	activeOperator=lastOperator;
-	    	inputNum=inputNumber();
-	    	expression += Double.toString(inputNum)+" ";
-			lastOperator = inputOperator();
-			expression += lastOperator+" ";
-	        if(terminate()) {printResult(); break;}
-	        if(lastOperator == '+' || lastOperator == '-') sum=getSum();			// if last operator is '+' or '-'
-	        if(lastOperator == '*' || lastOperator == '/') product=getProduct(); 	// if last operator is '*' or '/'
-	        System.out.println("expression = " + expression);
+	    	
+	    	if(askNumber) {inputOfCalclulator(); continue;}
+	    	else inputOfCalclulator();
+	    	//System.out.print("expression = " + expression);
+	    	
+	        if(terminate()) {printResult(); scanner.close(); break;}
+	        else if(lastOperator == '+' || lastOperator == '-') sum=getSum();			// if last operator is '+' or '-'
+	        else if(lastOperator == '*' || lastOperator == '/') product=getProduct(); 	// if last operator is '*' or '/'
+	        else System.out.println("logical error !!!");
+	        System.out.println("expression : " + expression+ "; sum  = " + sum+"; product = "+product);
 	        System.out.println();
 	   } // end of while 		
 		
 		return result;
 	}
+	
+	public void printResult() {
+		System.out.println("Terminated calculation.  sum = " + sum);
+	}	
+	
+	
 	public boolean terminate() {
 		boolean terminated=false;
 		
@@ -65,10 +71,5 @@ public class Xcalculator extends XcalculatorBase{
     	}
     	//System.out.println("sum = " + sum+ "    product = "+product);
 		return product;
-	}
-	
-
-	
-	
-
+	}	
 }

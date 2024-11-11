@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 
 
-public class CalculatorFundamentals {
+public class XcalculatorBase {
 	Scanner scanner=null;
 	double inputNum=0;
 	String inputNumString="";	
@@ -13,7 +13,7 @@ public class CalculatorFundamentals {
 	
 	String expression="";
 	
-	CalculatorFundamentals(){
+	XcalculatorBase(){
 		scanner = new Scanner(System.in);
 	}
 	
@@ -29,7 +29,7 @@ public class CalculatorFundamentals {
 			    System.out.println("Invalid input: Please enter a valid number.");
 			    // Handle the error, e.g., prompt the user for input again
 			}		
-			System.out.println();
+			
 		}
 		return inputNum;
 	}
@@ -39,13 +39,13 @@ public class CalculatorFundamentals {
 		while(!inputFinished) {
 			System.out.print("Enter an operator (+, -, *, /, =): "); 
 	        lastOperatorStr = scanner.next();   
-	        if (lastOperatorStr.trim().length() > 1) {System.out.println("Bad Operator !!"); continue;}
+	        if (lastOperatorStr.trim().length() > 1) {System.out.println("Bad Operator !!, Please retyping operator again."); continue;}
 	        lastOperator = lastOperatorStr.charAt(0);
 	        if (!(lastOperator == '=' || lastOperator == '+' || lastOperator == '-' || lastOperator == '*' || lastOperator == '/')) {
 	        	System.out.println("Error operator !!!" ); continue;
 	        }
 	        inputFinished=true;
-	        System.out.println();
+	       
 		}
 		return lastOperator;
 	}	
@@ -55,7 +55,7 @@ public class CalculatorFundamentals {
 	}	
 	
 	
-	static double calculatorEngine(double result, double num, char operatorChar) {
+	double calculatorEngine(double result, double num, char operatorChar) {
         if (operatorChar == '\0') {
             result = num;
         } else {
