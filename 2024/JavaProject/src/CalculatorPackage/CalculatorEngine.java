@@ -1,7 +1,7 @@
 package CalculatorPackage;
 
 
-public class CalculatorEngine extends CalculatorUserIO{
+public class CalculatorEngine extends CalculatorIO{
 	
 
 	String expression="";

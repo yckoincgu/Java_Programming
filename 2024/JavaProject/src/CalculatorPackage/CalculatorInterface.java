@@ -1,6 +1,7 @@
 package CalculatorPackage;
 
 public interface CalculatorInterface {
-	void inputOfCalclulator();
+	double getNumber();
+	char getOperator();
 	
 }

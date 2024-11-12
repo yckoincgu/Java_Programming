@@ -2,12 +2,12 @@ package CalculatorPackage;
 
 import java.util.Scanner;
 
-public class CalculatorUserIO {
+public class CalculatorIO {
 	double inputNum=0, sum = 0, product=0;
 	char activeOperator ='\0', lastOperator='\0';	
 	Scanner scanner=null;
 	
-	CalculatorUserIO(){
+	CalculatorIO(){
 		scanner = new Scanner(System.in);
 	}
 
