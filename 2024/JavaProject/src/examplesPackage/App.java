@@ -1,7 +1,7 @@
 package examplesPackage;
 
 import java.util.Scanner;
-import CalculatorPackage.Xcalculator;
+import CalculatorPackage.CalculatorOperationFlow;
 import CalculatorPackage.Ycalculator;
 
 enum EX {xbasic, xarray, xterminated, calcuatorV1, xcalculator, ycalculator}
@@ -27,8 +27,8 @@ public class App {
 	        	a.calEntrancec();
 	        }
 	        case 4->{
-	    		Xcalculator a=new Xcalculator();
-	    		a.xOperation();     	        	
+	        	CalculatorOperationFlow a=new CalculatorOperationFlow();
+	    		a.xFlow();     	        	
 	        }
 	        case 5->{
 	        	Ycalculator b=new Ycalculator();
