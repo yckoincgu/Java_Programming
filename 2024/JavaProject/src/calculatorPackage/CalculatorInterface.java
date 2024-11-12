@@ -1,4 +1,4 @@
-package CalculatorPackage;
+package calculatorPackage;
 
 public interface CalculatorInterface {
 	double getNumber();

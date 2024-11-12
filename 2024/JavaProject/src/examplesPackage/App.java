@@ -1,8 +1,9 @@
 package examplesPackage;
 
 import java.util.Scanner;
-import CalculatorPackage.CalculatorOperationFlow;
-import CalculatorPackage.Ycalculator;
+
+import calculatorPackage.CalculatorOperationFlow;
+import calculatorPackage.Ycalculator;
 
 enum EX {xbasic, xarray, xterminated, calcuatorV1, xcalculator, ycalculator}
 
@@ -30,10 +31,7 @@ public class App {
 	        	CalculatorOperationFlow a=new CalculatorOperationFlow();
 	    		a.xFlow();     	        	
 	        }
-	        case 5->{
-	        	Ycalculator b=new Ycalculator();
-	    		b.yOperation();     	        	
-	        }	        
+	        case 5->{    }	        
 	
         }
         
