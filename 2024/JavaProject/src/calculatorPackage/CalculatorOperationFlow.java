@@ -10,9 +10,9 @@ public class CalculatorOperationFlow extends CalculatorEngine {
 	    	expression += Double.toString(inputNum)+" ";
 			lastOperator = getOperator();
 			expression += lastOperator+" ";
-	        if(expressionTerminate()) {printResult(); break;}
-	        if(lastOperator == '+' || lastOperator == '-') sum=expressionGetSum();			// if last operator is '+' or '-'
-	        if(lastOperator == '*' || lastOperator == '/') product=expressionGetProduct(); 	// if last operator is '*' or '/'
+	        if(lastOperator == '=') {finalTerminate(); break;}
+	        if(lastOperator == '+' || lastOperator == '-') sum=getSum_lastOperator();			// if last operator is '+' or '-'
+	        if(lastOperator == '*' || lastOperator == '/') product=getProduct_lastOperator(); 	// if last operator is '*' or '/'
 	        System.out.println("expression = " + expression);
 	        System.out.println();
 	   } // end of while 		

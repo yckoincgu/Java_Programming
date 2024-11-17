@@ -2,20 +2,18 @@ package calculatorPackage;
 
 
 public class CalculatorEngine extends CalculatorIO{
-	
-
+	boolean divisionError=false;
 	String expression="";
 	
-	
 	public void printResult() {
-		System.out.println("Terminated calculation.  sum = " + sum);
+		if(!divisionError) System.out.println("Terminated calculation.  sum = " + sum);
 	}	
 	
 	
 	double calculatorKernel(double result, double num, char operatorChar) {
         if (operatorChar == '\0') {
-            result = num;
-        } else {
+            result = num;} 
+        else {
             switch (operatorChar) {
                 case '+', '=':
                     result += num; break;
@@ -26,6 +24,7 @@ public class CalculatorEngine extends CalculatorIO{
                 case '/':
                     if (num == 0) {
                         System.out.println("Error: Division by zero");
+                        divisionError=true;
                         return 0;
                     }
                     result /= num;
@@ -37,30 +36,27 @@ public class CalculatorEngine extends CalculatorIO{
 		return result;
 	}
 	
-	public boolean expressionTerminate() {
-		boolean terminated=false;
+	public void finalTerminate() {
 		
-        if(lastOperator == '=') {
-        	switch(activeOperator) {
-            	case '\0','+', '-'->{sum=product+calculatorKernel(sum, inputNum, activeOperator); }
-            	case '*'->{sum=sum+calculatorKernel(product, inputNum, activeOperator);}
-            	case '/'->{
-            		if(inputNum==0) {System.out.println("divisor cannot be 0"); }
-            		else {sum=sum+calculatorKernel(product, inputNum, activeOperator); }
-            	}
-            }
-        	terminated=true;
-        	System.out.println(expression + sum);
-        }    				
-		return terminated;
+    	switch(activeOperator) {
+        	case '\0','+', '-'->{sum=product+calculatorKernel(sum, inputNum, activeOperator); }
+        	case '*'->{sum=sum+calculatorKernel(product, inputNum, activeOperator);}
+        	case '/'->{
+        		if(inputNum==0) {System.out.println("divisor cannot be 0"); divisionError=true;}
+        		else {sum=sum+calculatorKernel(product, inputNum, activeOperator); }
+        	}
+        }
+    	if(!divisionError) printResult();
+    	else System.out.println("Arithmetic expression gets wrong operator.");
+
 	}	
 	
-	public double expressionGetSum() {
+	public double getSum_lastOperator() {
     	switch(activeOperator) {
         	case '\0','+', '-'->{sum=product+calculatorKernel(sum, inputNum, activeOperator);}
         	case '*'->{sum=sum+calculatorKernel(product, inputNum, activeOperator);}
         	case '/'->{
-        		if(inputNum==0) {System.out.println("divisor cannot be 0"); }
+        		if(inputNum==0) {System.out.println("divisor cannot be 0"); divisionError=true; }
         		else {sum=sum+calculatorKernel(product, inputNum, activeOperator);}
             }
     	}
@@ -70,17 +66,16 @@ public class CalculatorEngine extends CalculatorIO{
 		return sum;
 	}
 	
-	public double expressionGetProduct() {
+	public double getProduct_lastOperator() {
     	switch(activeOperator) {
         	case '\0','+'->{product=inputNum;}
         	case '-'->{product=(-1)*inputNum;}
         	case '*'->{product=calculatorKernel(product, inputNum, activeOperator); }
         	case '/'->{
-        		if(inputNum==0) {System.out.println("divisor cannot be 0"); product=0;}
+        		if(inputNum==0) {System.out.println("divisor cannot be 0"); product=0; divisionError=true;}
             		else {product=calculatorKernel(product, inputNum, activeOperator);}
             }
     	}
-    	//System.out.println("sum = " + sum+ "    product = "+product);
 		return product;
 	}	
 

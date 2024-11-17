@@ -3,7 +3,6 @@ package examplesPackage;
 import java.util.Scanner;
 
 import calculatorPackage.CalculatorOperationFlow;
-import calculatorPackage.Ycalculator;
 
 enum EX {xbasic, xarray, xterminated, calcuatorV1, xcalculator, ycalculator}
 
