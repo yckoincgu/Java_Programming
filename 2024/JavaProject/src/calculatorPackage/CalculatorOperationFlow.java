@@ -11,8 +11,9 @@ public class CalculatorOperationFlow extends CalculatorEngine {
 			lastOperator = getOperator();
 			expression += lastOperator+" ";
 	        if(lastOperator == '=') {finalTerminate(); break;}
-	        if(lastOperator == '+' || lastOperator == '-') sum=getSum_lastOperator();			// if last operator is '+' or '-'
-	        if(lastOperator == '*' || lastOperator == '/') product=getProduct_lastOperator(); 	// if last operator is '*' or '/'
+	        else if(lastOperator == '+' || lastOperator == '-') sum=getSum_lastOperator();			// if last operator is '+' or '-'
+	        else if(lastOperator == '*' || lastOperator == '/') product=getProduct_lastOperator(); 	// if last operator is '*' or '/'
+	        else { System.out.println("Expression error !!"); break;}
 	        System.out.println("expression = " + expression);
 	        System.out.println();
 	   } // end of while 		
@@ -20,4 +21,21 @@ public class CalculatorOperationFlow extends CalculatorEngine {
 		return result;
 	}
 
+	public double yFlow() {
+		double result=0;
+		String userInputStr=getExpressionStr();
+		
+		while(userInputStr.length()>0) {
+			activeOperator=lastOperator;
+			userInputStr=getNumberAndOperator(userInputStr);
+	        if(lastOperator == '=') {finalTerminate(); break;}
+	        else if(lastOperator == '+' || lastOperator == '-') sum=getSum_lastOperator();			// if last operator is '+' or '-'
+	        else if(lastOperator == '*' || lastOperator == '/') product=getProduct_lastOperator(); 	// if last operator is '*' or '/'
+	        else { System.out.println("Expression error !!"); break;}
+	        System.out.println();			
+		}
+		
+		;
+		return result;
+	}
 }

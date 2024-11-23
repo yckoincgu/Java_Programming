@@ -2,6 +2,7 @@ package examplesPackage;
 
 import java.util.Scanner;
 
+
 import calculatorPackage.CalculatorOperationFlow;
 
 enum EX {xbasic, xarray, xterminated, calcuatorV1, xcalculator, ycalculator}
@@ -28,7 +29,7 @@ public class App {
 	        }
 	        case 4->{
 	        	CalculatorOperationFlow a=new CalculatorOperationFlow();
-	    		a.xFlow();     	        	
+	    		a.yFlow();     	        	
 	        }
 	        case 5->{    }	        
 	
