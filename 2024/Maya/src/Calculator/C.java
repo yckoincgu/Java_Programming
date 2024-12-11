@@ -3,7 +3,8 @@ package Calculator;
 public class C extends B{
 	
 	void calculate() {
-		getProduct();
+		
+		getEachProduct();
         if(numbers.size()>0) {
         	result=numbers.get(0);
         	getSum();

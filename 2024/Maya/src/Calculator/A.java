@@ -7,6 +7,8 @@ public class A {
     Scanner scanner = new Scanner(System.in);
     ArrayList<Double> numbers = new ArrayList<>();
     ArrayList<Character> operators = new ArrayList<>();
+    boolean divisionError=false;
+    
     double result=0.0;
     
     void getNumber() {
