@@ -6,9 +6,6 @@ public class B extends A{
         for (int i = 0; i < operators.size(); i++) {
             if (operators.get(i) == '*' || operators.get(i) == '/') {
                 double individualProduct = calculatorKernel(numbers.get(i), numbers.get(i+1), operators.get(i));
-                		//operators.get(i) == '*'
-                        //? numbers.get(i) * numbers.get(i + 1)
-                        //: numbers.get(i) / numbers.get(i + 1);
                 numbers.set(i, individualProduct);
                 numbers.remove(i + 1);
                 operators.remove(i);
@@ -46,15 +43,8 @@ public class B extends A{
 	
 	void getSum() {
 
-        for (int i = 0; i < operators.size(); i++) {
+        for (int i = 0; i < operators.size(); i++) 
         	result = calculatorKernel(result, numbers.get(i+1), operators.get(i));
-        	
-            //if (operators.get(i) == '+') {
-            //    result += numbers.get(i + 1);
-            //} else if (operators.get(i) == '-') {
-            //    result -= numbers.get(i + 1);
-            //}
-        }
 
     }
 	
