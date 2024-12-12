@@ -23,19 +23,35 @@ public class CalculatorOperationFlow extends CalculatorEngine {
 
 	public double yFlow() {
 		double result=0;
-		String userInputStr=getExpressionStr();
+		String arithmeticExpression=getExpressionStr();
 		
-		while(userInputStr.length()>0) {
+		while(arithmeticExpression.length()>0) {
 			activeOperator=lastOperator;
-			userInputStr=getNumberAndOperator(userInputStr);
+			arithmeticExpression=getArithmeticExpression(arithmeticExpression);
 	        if(lastOperator == '=') {finalTerminate(); break;}
 	        else if(lastOperator == '+' || lastOperator == '-') sum=getSum_lastOperator();			// if last operator is '+' or '-'
 	        else if(lastOperator == '*' || lastOperator == '/') product=getProduct_lastOperator(); 	// if last operator is '*' or '/'
 	        else { System.out.println("Expression error !!"); break;}
 	        System.out.println();			
 		}
-		
-		;
 		return result;
 	}
+	
+	public double zFlow() {
+		double result=0;
+		String arithmeticExpression=getExpressionStr();
+		
+		while(arithmeticExpression.length()>0) {
+			
+			
+			activeOperator=lastOperator;
+			arithmeticExpression=getArithmeticExpression(arithmeticExpression);
+	        if(lastOperator == '=') {finalTerminate(); break;}
+	        else if(lastOperator == '+' || lastOperator == '-') sum=getSum_lastOperator();			// if last operator is '+' or '-'
+	        else if(lastOperator == '*' || lastOperator == '/') product=getProduct_lastOperator(); 	// if last operator is '*' or '/'
+	        else { System.out.println("Expression error !!"); break;}
+	        System.out.println();			
+		}
+		return result;
+	}	
 }

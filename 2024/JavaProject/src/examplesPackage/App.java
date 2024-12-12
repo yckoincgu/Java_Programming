@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import calculatorPackage.CalculatorOperationFlow;
 
-enum EX {xbasic, xarray, xterminated, calcuatorV1, xcalculator, ycalculator}
+enum EX {xbasic, xarray, xterminated, calcuatorV1, xcalculator, expressionCcalculator, priorityCalculator}
 
 public class App {
 
@@ -17,7 +17,7 @@ public class App {
         for(int i=0; i< EX.values().length; i++) {
         	System.out.println(i+" "+ex[i].name()); 
         }
-        System.out.println("Choose an integer to run x_application");        
+        System.out.println("Choose an integer to run application");        
     
         Scanner reader = new Scanner(System.in);
         int choice;    	
@@ -29,9 +29,12 @@ public class App {
 	        }
 	        case 4->{
 	        	CalculatorOperationFlow a=new CalculatorOperationFlow();
-	    		a.yFlow();     	        	
+	    		a.xFlow();     	        	
 	        }
-	        case 5->{    }	        
+	        case 5->{
+	        	CalculatorOperationFlow a=new CalculatorOperationFlow();
+	    		a.yFlow();     	        	
+	        }	        
 	
         }
         

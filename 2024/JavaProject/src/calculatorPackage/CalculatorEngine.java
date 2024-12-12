@@ -9,7 +9,6 @@ public class CalculatorEngine extends CalculatorIO{
 		if(!divisionError) System.out.println("Terminated calculation.  sum = " + sum);
 	}	
 	
-	
 	double calculatorKernel(double result, double num, char operatorChar) {
         if (operatorChar == '\0') {
             result = num;} 
