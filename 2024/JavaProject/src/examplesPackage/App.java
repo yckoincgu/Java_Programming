@@ -3,7 +3,7 @@ package examplesPackage;
 import java.util.Scanner;
 
 
-import calculatorPackage.CalculatorOperationFlow;
+import calculatorPackage.Cal_03_Operation;
 
 enum EX {xbasic, xarray, xterminated, calcuatorV1, xcalculator, expressionCcalculator, priorityCalculator}
 
@@ -28,13 +28,34 @@ public class App {
 	        	a.calEntrancec();
 	        }
 	        case 4->{
-	        	CalculatorOperationFlow a=new CalculatorOperationFlow();
+	        	Cal_03_Operation a=new Cal_03_Operation();
 	    		a.xFlow();     	        	
 	        }
 	        case 5->{
-	        	CalculatorOperationFlow a=new CalculatorOperationFlow();
-	    		a.yFlow();     	        	
-	        }	        
+	        	Cal_03_Operation a=new Cal_03_Operation();
+	    		a.getResultOfArithmeticExpression(a.getExpressionStr());   
+	    		a.printResult();
+	        }	  
+	        case 6->{
+	        	double result=0;
+	        	Cal_03_Operation a=new Cal_03_Operation();
+	    		
+	    		String priortyExpression=a.getExpressionStr(), arithmeticExpression="";	        	
+	        	
+	    		
+	    		int marks=0, marksPosition=-1;
+	    		
+	    		if(!priortyExpression.contains("(")) {
+	    			a.getResultOfArithmeticExpression(priortyExpression);
+	    			System.out.print("arithmeticExpression = "+arithmeticExpression+ "\n");	}
+	    		else
+	    		System.out.println("priority expression final resut = "+
+	    		a.getResultOfArithmeticExpression(a.transferPriorityToArithmeticExpression(priortyExpression)));
+	    		a.printResult();
+	    		//System.out.print("arithmeticExpression = "+arithmeticExpression+"\n");	
+	    			
+	    		   	        	
+	        }		        
 	
         }
         

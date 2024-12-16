@@ -3,14 +3,14 @@ package calculatorPackage;
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class CalculatorIO {
+public class Cal_01_IO {
 	double inputNum=0, sum = 0, product=0;
 	char activeOperator ='\0', lastOperator='\0';	
 	private Scanner scanner=null;
 	ArrayList<String> expressionList=new ArrayList<>();
 	
 	
-	CalculatorIO(){
+	Cal_01_IO(){
 		scanner = new Scanner(System.in);
 	}
 	
@@ -21,51 +21,24 @@ public class CalculatorIO {
 		return userInputStr;
 	}
 	
-	public String getRidOffPriority(String priortyExpression) {
-		int p=priortyExpression.indexOf('('), 
-				q=priortyExpression.indexOf(')', p+1);		// first ')' after '('
-		String arithmeticExpression="";
+
 		
-		if(p<0) expressionList.add(priortyExpression);
-		else if	(q > 0 && q > p)  {
-			arithmeticExpression += getRidOffPriority(priortyExpression.substring(0, p));
-			arithmeticExpression += getRidOffPriority(priortyExpression.substring(p+1, q));
-			if(priortyExpression.length()> q+1) 
-				arithmeticExpression += getRidOffPriority(priortyExpression.substring(q+1, priortyExpression.length()+1));}
-		else if	(q > 0 && q < p) 
-			
-		
-			String[] y=priortyExpression.split("(");
-			String p0=priortyExpression.substring(0, p1);
-			if(y[1].indexOf(')') < 0) 
-				expressionList.add("Error in expression !!");
-			else if(y[1].indexOf(')') > 0 ) {
-					expressionList.add(priortyExpression.substring(0, p1));
-					expressionList.add(priortyExpression.substring(p1+1, y[1].indexOf(')')));
-					
-				}
-			
-			int q1=y[1].indexOf(')');
-			if(q1>0) getRidOffPriority(y[1]);
-			
-			//priortyExpression.indexOf(po)
-			
-		}
-		return priortyExpression; 
-	}
 	
-	public String getArithmeticExpression(String arithmeticExpression) {
+
+	
+	public String reduceArithmeticExpression(String arithmeticExpression) {
 		//String arithemeticExpression=inputStr;
 		
 		if(!arithmeticExpression.contains("=")) return  "Invalid input: ";
-
+		System.out.println("Before reduceArithmeticExpression : "+arithmeticExpression); 	
 		for(int i=0; i<arithmeticExpression.length(); i++) {
 			if(arithmeticExpression.charAt(i) == '+' || arithmeticExpression.charAt(i) == '-' || arithmeticExpression.charAt(i) == '*' || arithmeticExpression.charAt(i) == '/' || arithmeticExpression.charAt(i) == '=') {
 				try {
 				    inputNum = Double.parseDouble(arithmeticExpression.substring(0, i));
 				    lastOperator=arithmeticExpression.charAt(i);
-				    //System.out.println("Expression : "+arithmeticExpression.substring(0, i)+lastOperator); 				    
+				    System.out.println("reduceArithmeticExpression : "+arithmeticExpression.substring(0, i)+lastOperator); 				    
 				    arithmeticExpression=arithmeticExpression.substring(i+1);
+				    
 				    break;
 
 				} catch (NumberFormatException e) {
