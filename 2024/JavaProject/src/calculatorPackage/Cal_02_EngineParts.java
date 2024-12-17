@@ -98,6 +98,8 @@ public class Cal_02_EngineParts extends Cal_01_IO{
 	public double getResultOfArithmeticExpression(String arithmeticExpression) {
 		
 		System.out.print(" Before getResultOfArithmeticExpression = "+arithmeticExpression+"\n");
+
+		
 		while(arithmeticExpression.length()>0) {
 			activeOperator=lastOperator;
 			arithmeticExpression=reduceArithmeticExpression(arithmeticExpression);
