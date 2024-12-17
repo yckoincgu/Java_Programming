@@ -93,13 +93,16 @@ public class Cal_02_EngineParts extends Cal_01_IO{
 		return product;
 	}
 	
-
+	private void resetGlobalVariables() {
+		inputNum=0; sum = 0; product=0;
+		activeOperator ='\0'; lastOperator='\0';			
+	}
 	
 	public double getResultOfArithmeticExpression(String arithmeticExpression) {
 		
-		System.out.print(" Before getResultOfArithmeticExpression = "+arithmeticExpression+"\n");
+		//System.out.print(" Before getResultOfArithmeticExpression = "+arithmeticExpression+"\n");
 
-		
+		resetGlobalVariables();		// the first step of arithmeticExpression processing
 		while(arithmeticExpression.length()>0) {
 			activeOperator=lastOperator;
 			arithmeticExpression=reduceArithmeticExpression(arithmeticExpression);
