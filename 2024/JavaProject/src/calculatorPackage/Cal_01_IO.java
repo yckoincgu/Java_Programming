@@ -4,10 +4,11 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Cal_01_IO {
-	double inputNum=0, sum = 0, product=0;
-	char activeOperator ='\0', lastOperator='\0';	
+	
+	char logicOperator='\0';		// control logical diagram 
+	double inputNum=0;
 	private Scanner scanner=null;
-	ArrayList<String> expressionList=new ArrayList<>();
+	//ArrayList<String> expressionList=new ArrayList<>();
 	
 	
 	Cal_01_IO(){
@@ -35,7 +36,7 @@ public class Cal_01_IO {
 			if(arithmeticExpression.charAt(i) == '+' || arithmeticExpression.charAt(i) == '-' || arithmeticExpression.charAt(i) == '*' || arithmeticExpression.charAt(i) == '/' || arithmeticExpression.charAt(i) == '=') {
 				try {
 				    inputNum = Double.parseDouble(arithmeticExpression.substring(0, i));
-				    lastOperator=arithmeticExpression.charAt(i);
+				    logicOperator=arithmeticExpression.charAt(i);
 				    //System.out.println("reduceArithmeticExpression : "+arithmeticExpression.substring(0, i)+lastOperator); 				    
 				    arithmeticExpression=arithmeticExpression.substring(i+1);
 				    
@@ -80,14 +81,14 @@ public class Cal_01_IO {
 			System.out.print("Enter an operator (+, -, *, /, =): "); 
 	        lastOperatorStr = scanner.next();   
 	        if (lastOperatorStr.trim().length() > 1) {System.out.println("Bad Operator !!, Please retyping operator again."); continue;}
-	        lastOperator = lastOperatorStr.trim().charAt(0);
-	        if (!(lastOperator == '=' || lastOperator == '+' || lastOperator == '-' || lastOperator == '*' || lastOperator == '/')) {
+	        logicOperator = lastOperatorStr.trim().charAt(0);
+	        if (!(logicOperator == '=' || logicOperator == '+' || logicOperator == '-' || logicOperator == '*' || logicOperator == '/')) {
 	        	System.out.print("Error operator !!!" ); continue;
 	        }
 	        inputFinished=true;
 	       
 		}
-		return lastOperator;
+		return logicOperator;
 	}	
 	
 	

@@ -2,13 +2,13 @@ package calculatorPackage;
 
 
 public class Cal_02_EngineParts extends Cal_01_IO{
+	double sum = 0, product=0;
+	char activeOperator ='\0';
 	boolean divisionError=false;
-	String expression="";
+	
 	Cal_Information cal_information=new Cal_Information();	// information object for final result;
 	
-	public void printResult() {
-		if(!divisionError) System.out.println("Terminated calculation.  sum = " + sum);
-	}	
+
 	
 	double calculatorKernel(double result, double num, char operatorChar) {
         if (operatorChar == '\0') {
@@ -95,7 +95,7 @@ public class Cal_02_EngineParts extends Cal_01_IO{
 	
 	private void resetGlobalVariables() {
 		inputNum=0; sum = 0; product=0;
-		activeOperator ='\0'; lastOperator='\0';			
+		activeOperator ='\0'; logicOperator='\0';			
 	}
 	
 	public double getResultOfArithmeticExpression(String arithmeticExpression) {
@@ -104,12 +104,12 @@ public class Cal_02_EngineParts extends Cal_01_IO{
 
 		resetGlobalVariables();		// the first step of arithmeticExpression processing
 		while(arithmeticExpression.length()>0) {
-			activeOperator=lastOperator;
+			activeOperator=logicOperator;
 			arithmeticExpression=reduceArithmeticExpression(arithmeticExpression);
-	        if(lastOperator == '=') {finalTerminate(); // System.out.print("finalTerminate(), result  = "+cal_information.finalDouble+"\n"); 
+	        if(logicOperator == '=') {finalTerminate(); // System.out.print("finalTerminate(), result  = "+cal_information.finalDouble+"\n"); 
 	        	break;}
-	        else if(lastOperator == '+' || lastOperator == '-') sum=getSum_lastOperator();			// if last operator is '+' or '-'
-	        else if(lastOperator == '*' || lastOperator == '/') product=getProduct_lastOperator(); 	// if last operator is '*' or '/'
+	        else if(logicOperator == '+' || logicOperator == '-') sum=getSum_lastOperator();			// if last operator is '+' or '-'
+	        else if(logicOperator == '*' || logicOperator == '/') product=getProduct_lastOperator(); 	// if last operator is '*' or '/'
 	        else { System.out.println("Expression error !!"); break;}
 	        //System.out.println("arithmeticExpression in getResultOfArithmeticExpression: "+arithmeticExpression);			
 		}
