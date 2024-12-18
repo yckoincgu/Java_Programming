@@ -44,7 +44,7 @@ public class Cal_03_Operation extends Cal_02_EngineParts {
 					arithmeticExpression=
 						priortyExpression.substring(0, marksPosition)+
 						(priortyExpression.substring(marksPosition+1,i).contains("(")?
-							transferPriorityToArithmeticExpression(priortyExpression.substring(marksPosition+1,i)):
+							Double.toString(getResultOfArithmeticExpression(transferPriorityToArithmeticExpression(priortyExpression.substring(marksPosition+1,i))+"=")):
 							Double.toString(getResultOfArithmeticExpression((priortyExpression.substring(marksPosition+1,i)+"="))))+
 						transferPriorityToArithmeticExpression(priortyExpression.substring(i+1,priortyExpression.length()));       
 					//System.out.println("priortyExpression.substring(marksPosition+1,i) : "+priortyExpression.substring(marksPosition+1,i)+"="+"\n");
