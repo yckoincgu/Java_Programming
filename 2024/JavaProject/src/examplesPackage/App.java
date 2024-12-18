@@ -49,9 +49,8 @@ public class App {
 	    			a.getResultOfArithmeticExpression(priortyExpression);
 	    			System.out.print("arithmeticExpression = "+arithmeticExpression+ "\n");	}
 	    		else
-	    		System.out.println("priority expression final resut = "+
-	    		a.getResultOfArithmeticExpression(a.transferPriorityToArithmeticExpression(priortyExpression)));
-	    		a.printResult();
+	    		System.out.println("Final result = "+ a.getResultOfArithmeticExpression(a.transferPriorityToArithmeticExpression(priortyExpression)));
+	    		//a.printResult();
 	    		//System.out.print("arithmeticExpression = "+arithmeticExpression+"\n");	
 	    			
 	    		   	        	

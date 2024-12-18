@@ -30,13 +30,13 @@ public class Cal_01_IO {
 		//String arithemeticExpression=inputStr;
 		
 		if(!arithmeticExpression.contains("=")) return  "Invalid input: ";
-		System.out.println("Before reduceArithmeticExpression : "+arithmeticExpression); 	
+		//System.out.println("Before reduceArithmeticExpression : "+arithmeticExpression); 	
 		for(int i=0; i<arithmeticExpression.length(); i++) {
 			if(arithmeticExpression.charAt(i) == '+' || arithmeticExpression.charAt(i) == '-' || arithmeticExpression.charAt(i) == '*' || arithmeticExpression.charAt(i) == '/' || arithmeticExpression.charAt(i) == '=') {
 				try {
 				    inputNum = Double.parseDouble(arithmeticExpression.substring(0, i));
 				    lastOperator=arithmeticExpression.charAt(i);
-				    System.out.println("reduceArithmeticExpression : "+arithmeticExpression.substring(0, i)+lastOperator); 				    
+				    //System.out.println("reduceArithmeticExpression : "+arithmeticExpression.substring(0, i)+lastOperator); 				    
 				    arithmeticExpression=arithmeticExpression.substring(i+1);
 				    
 				    break;

@@ -41,7 +41,7 @@ public class Cal_02_EngineParts extends Cal_01_IO{
 		cal_information.finalBoolean=true;	// initial setting for final result
     	switch(activeOperator) {
         	case '\0','+', '-'->{
-        		System.out.println("product = "+product+"; sum = "+sum+ "; inputNum = "+inputNum);
+        		//System.out.println("product = "+product+"; sum = "+sum+ "; inputNum = "+inputNum);
         		sum=product+calculatorKernel(sum, inputNum, activeOperator); 
         	 
         	}
@@ -106,11 +106,12 @@ public class Cal_02_EngineParts extends Cal_01_IO{
 		while(arithmeticExpression.length()>0) {
 			activeOperator=lastOperator;
 			arithmeticExpression=reduceArithmeticExpression(arithmeticExpression);
-	        if(lastOperator == '=') {finalTerminate(); System.out.print("finalTerminate(), result  = "+cal_information.finalDouble+"\n"); break;}
+	        if(lastOperator == '=') {finalTerminate(); // System.out.print("finalTerminate(), result  = "+cal_information.finalDouble+"\n"); 
+	        	break;}
 	        else if(lastOperator == '+' || lastOperator == '-') sum=getSum_lastOperator();			// if last operator is '+' or '-'
 	        else if(lastOperator == '*' || lastOperator == '/') product=getProduct_lastOperator(); 	// if last operator is '*' or '/'
 	        else { System.out.println("Expression error !!"); break;}
-	        System.out.println("arithmeticExpression in getResultOfArithmeticExpression: "+arithmeticExpression);			
+	        //System.out.println("arithmeticExpression in getResultOfArithmeticExpression: "+arithmeticExpression);			
 		}
 		//System.out.print("After reduction, result  = "+cal_information.finalDouble+"\n");
 		return cal_information.finalDouble;
