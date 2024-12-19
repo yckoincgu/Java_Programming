@@ -65,8 +65,8 @@ public class Cal_03_Operation extends Cal_02_EngineParts {
 	
 	public double zFlow() {
 		double result=0;
-		String priortyExpression=getExpressionStr(),
-		  	   arithmeticExpression=transferPriorityToArithmeticExpression(priortyExpression);
+		String priorityExpression=getExpressionStr(),
+		  	   arithmeticExpression=transferPriorityToArithmeticExpression(priorityExpression);
 
 		return getResultOfArithmeticExpression(arithmeticExpression);
 	}	
