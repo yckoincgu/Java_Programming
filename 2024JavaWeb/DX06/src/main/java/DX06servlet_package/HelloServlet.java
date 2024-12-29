@@ -8,8 +8,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-
-import calculatorPackage.Cal_03_Operation;
+import objTemplate.Cal_04_PriorityExpression;
+//import calculatorPackage.Cal_03_Operation;
 
 /**
  * Servlet implementation class HelloServlet
@@ -28,7 +28,7 @@ public class HelloServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String priorityExpression=request.getParameter("priorityExpression");
-		Cal_03_Operation a=new Cal_03_Operation();
+		Cal_04_PriorityExpression a=new Cal_04_PriorityExpression();
 		String outputResult;
 		
 		if(!priorityExpression.contains("(")) {
