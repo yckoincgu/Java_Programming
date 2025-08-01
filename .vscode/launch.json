@@ -1,0 +1,77 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "B11155001.App",
+            "projectName": "B11155001-app"
+        },
+        {
+            "type": "java",
+            "name": "App(1)",
+            "request": "launch",
+            "mainClass": "B11155001Ax.App",
+            "projectName": "B11155001Ax-app"
+        },
+        {
+            "type": "java",
+            "name": "EX01",
+            "request": "launch",
+            "mainClass": "EX01/EX01.EX01",
+            "projectName": "EX01 (2)"
+        },
+        {
+            "type": "java",
+            "name": "App(2)",
+            "request": "launch",
+            "mainClass": "EX02.App",
+            "projectName": "EX02-app"
+        },
+        {
+            "type": "java",
+            "name": "App(3)",
+            "request": "launch",
+            "mainClass": "Java20231018.App",
+            "projectName": "Java20231018-app"
+        },
+        {
+            "type": "java",
+            "name": "App(4)",
+            "request": "launch",
+            "mainClass": "examples/examplesPackage.App",
+            "projectName": "JavaProject"
+        },
+        {
+            "type": "java",
+            "name": "Start",
+            "request": "launch",
+            "mainClass": "Maya/Calculator.Start",
+            "projectName": "Maya"
+        },
+        {
+            "type": "java",
+            "name": "App(5)",
+            "request": "launch",
+            "mainClass": "EX01.App",
+            "projectName": "app"
+        },
+        {
+            "type": "java",
+            "name": "Calculator",
+            "request": "launch",
+            "mainClass": "test/test.Calculator",
+            "projectName": "test"
+        }
+    ]
+}
